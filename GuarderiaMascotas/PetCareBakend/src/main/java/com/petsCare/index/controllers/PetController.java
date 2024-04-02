@@ -15,8 +15,30 @@ public class PetController {
     @Autowired
     PetService petService;
 
+    @DeleteMapping("/deletePet")
+    ResponseEntity<String> deletePet(@RequestBody Long id) {
+        return petService.deletePet(id);
+    }
+
+    @PutMapping("/updatePet/{id}")
+    ResponseEntity<String> updatePet(@PathVariable Long id, @RequestBody Pet pet) {
+        return petService.updatePet(id, pet);
+    }
+
     @GetMapping("/getAllPets")
     List<Pet> getAllPets() {
         return petService.getAllPets();
     }
+
+    @GetMapping("/getByIdPet")
+    Pet getByIdPet(@RequestBody Long id){
+        return petService.getByIdPet(id);
+    }
+
+    @GetMapping("/getByNamePets")
+    List<Pet> getByNamePets(@RequestBody String name) {
+        return petService.getByNamePets(name);
+    }
+
+    @GetMapping()
 }
