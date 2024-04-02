@@ -1,2 +1,0 @@
-# SenaExercises
-Sena Exercises ADSO
